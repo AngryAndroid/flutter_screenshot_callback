@@ -45,9 +45,9 @@ Then invoke <code>addListener</code> method of <code>ScreenshotCallback</code>.
 Add custom functions that you want to excute after detect screenshot. e.g:
 
 ```dart
-screenshotCallback.addListener(() {
-  //Void funtions are implemented
-  print('detect screenshot');
+screenshotCallback.addListener((String? screenshotPath) {
+  // funtion is implemented
+  print('detect screenshot: $screenshotPath');
 });
 ```
 
@@ -69,6 +69,7 @@ Please [**file**](https://github.com/flutter-moum/flutter_screenshot_callback/is
 - [minsub0922](https://github.com/minsub0922) • <minsub0922@naver.com>
 - [beygee](https://github.com/beygee) • <doug0476@naver.com>
 - [Flutter Moum](https://github.com/flutter-moum) • <fluttermoum@gmail.com>
+- [AngryAndroid](https://github.com/AngryAndroid)
 
 ## License
 
