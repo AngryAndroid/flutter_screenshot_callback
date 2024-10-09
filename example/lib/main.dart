@@ -11,12 +11,11 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   late ScreenshotCallback screenshotCallback;
 
-  String text = "Ready..";
+  String? text = "Ready..";
 
   @override
   void initState() {
     super.initState();
-
     init();
   }
 
@@ -28,13 +27,13 @@ class _MyAppState extends State<MyApp> {
   Future<void> initScreenshotCallback() async {
     screenshotCallback = ScreenshotCallback();
 
-    screenshotCallback.addListener(() {
+    screenshotCallback.addListener((String? screenshotPath) {
       setState(() {
-        text = "Screenshot callback Fired!";
+        text = screenshotPath;
       });
     });
 
-    screenshotCallback.addListener(() {
+    screenshotCallback.addListener((String? screenshotPath) {
       print("We can add multiple listeners ");
     });
   }
@@ -53,7 +52,7 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Detect Screenshot Callback Example'),
         ),
         body: Center(
-          child: Text(text,
+          child: Text(text ?? '',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
               )),
